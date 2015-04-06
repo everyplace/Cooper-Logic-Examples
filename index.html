@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Logic explorations</title>
+		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+
+			$(document).ready(function(){
+
+		      $.getJSON("http://cooper-union-weather-proxy.herokuapp.com/weather/NY/Manhattan", function(response) {
+						
+
+						var weather = response.current_observation.feelslike_f;
+
+						//weather!
+						if((weather < 60) && (weather > 32)) {
+							//weather is less than 50 AND greater than 32 
+							console.log("It is above freezing")
+						} else {
+							console.log("it is tooooo cold")
+						}
+						
+		      });
+			
+
+			})
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
