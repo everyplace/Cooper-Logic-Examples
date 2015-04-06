@@ -13,7 +13,10 @@
 						var weather = response.current_observation.feelslike_f;
 
 						//weather!
-						if((weather < 60) && (weather > 32)) {
+
+						var answer = 10 * (10 + 50);
+
+						if(((weather < 60) && (weather > 32)) || (weather < 0)) {
 							//weather is less than 50 AND greater than 32 
 							console.log("It is above freezing")
 						} else {
