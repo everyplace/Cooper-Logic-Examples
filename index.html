@@ -11,6 +11,21 @@
 						
 
 						var weather = response.current_observation.feelslike_f;
+						var condition = response.current_observation.weather.toLowerCase();
+
+
+						if((condition == "rain")) || (condition == "snow")) || (condition == "fog"))
+						{
+							console.log("the weather has a lot of moisture in the air");
+						}
+
+						var rainyConditions = ["rain","snow","fog"];
+
+						if((rainyConditions.indexOf(condition) >= 0) && (weather > 40)){
+							console.log("the weather looks like rain, and it is warm");
+						}
+
+
 
 						//weather!
 
