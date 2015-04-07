@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+
+        var output = function(text) {
+          $("body").append("<h2>"+text+"</h2>");
+        }
+
+        $.getJSON("http://cooper-union-search-proxy.herokuapp.com/twitter/search/cooper%20union", function(response){
+         
+          // console.log(response.statuses);
+
+          for(var i = 0; i<response.statuses.length; i++) {
+            output(response.statuses[i].text);
+          }
+
+      });
+    </script>
+  </head>
+  <body>
+
+
+  </body>
+</html>
+
