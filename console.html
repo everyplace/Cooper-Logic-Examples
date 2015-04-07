@@ -28,13 +28,42 @@
 
 
 
-				var sayItLoud = function(statement) {
-					$("body").html("<h1>" + statement + "</h1>");
+				var sayItLoud = function(tag, className, statement) {
+
+					var selfClosingTags = ["img","br", "hr"];
+
+					if(selfClosingTags.indexOf(tag) >= 0) {
+						var output = "<" + tag + " src=" + statement + " />";
+					} else {
+						var openTag = "<" + tag + ">";
+						var closeTag = "</" + tag + ">";
+						var output = openTag + statement + closeTag;
+					}
+					$("body").append(output);
+				}
+
+				var sayItCrazily = function(config) {
+
+					//do some stuff
+					if(config.text && config.className && config.tag && (config.tag === "img")) {
+						//output an image tag with a class and text
+						var output = "<" + img +" class=" + config.className + " src=" +config.text + " />";
+					} else if(config.text && config.tag && (config.tag === "img")) {
+						var output = "<" + img + " src=" +config.text + " />";
+					}
+					
 				}
 
 
-				sayItLoud("h1","This should be in an h1");
-				sayItLoud("h2","This should be smaller in an h2");
+				var data = {
+					"text":"Hello crazy world!",
+					"className":"fancy",
+					"tag":"h1",
+					"src":"hi"
+				};
+
+				sayItCrazily(data);
+
 
 			});
 
